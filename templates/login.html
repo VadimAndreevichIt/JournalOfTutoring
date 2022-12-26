@@ -1,0 +1,35 @@
+{% extends "main_page.html" %}
+
+{% block content %}
+    <div class="card" style="width:20%; margin-top: 10%;margin-left: 40%;margin-right: 40%; ">
+          <div class="card-body" >
+                <h3><u>Авторизация</u></h3>
+                <form action="" method="post" style="margin-top:10%;">
+                    {{ form.hidden_tag() }}
+                    <p>
+                        {{ form.login.label }}<br>
+                        {{ form.login(class="form-control") }}<br>
+                        {% for error in form.login.errors %}
+                            <div class="alert alert-danger" role="alert">
+                                {{ error }}
+                            </div>
+                        {% endfor %}
+                    </p>
+
+                    <p>
+                        {{ form.password.label }}<br>
+                        {{ form.password(class="form-control", type="password") }}<br>
+                        {% for error in form.password.errors %}
+                            <div class="alert alert-danger" role="alert">
+                                {{ error }}
+                            </div>
+                        {% endfor %}
+                    </p>
+
+                    <p>{{ form.submit(type="submit", class="btn btn-warning") }}</p>
+                    <div>{{ message }}</div>
+                </form>
+          </div>
+    </div>
+
+{% endblock %}

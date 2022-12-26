@@ -1,0 +1,66 @@
+{% extends "main_page.html" %}
+
+{% block content %}
+<div style="margin-top: 2%">
+    <h3 align="center"> <u> {{user.name}}</u> </h3>
+    <div class="card-deck" >
+        <div class="card size_form" >
+            <form action="" method="post" novalidate>
+                <div class="bgcolor_fon1">
+                      <div class="card-header">
+                        {{ form.data(class="form-control", placeholder="Дата", style="max-width:30%", value=info[1]) }}
+                      </div>
+                </div>
+                  <div class="card-body">
+                      <div class="margin_card_item1">
+                            {{ form.topic(class="form-control", placeholder="Тема занятия", value=info[2]) }}
+                      </div>
+                      <div class="margin_card_item1">
+                            {{ form.comment(class="form-control", placeholder="Комментарий", value=info[3]) }}
+                      </div>
+                      <div class="margin_card_item1">
+                            <table class="table table-bordered">
+                                  <tbody>
+                                        <tr>
+                                          <td style="vertical-align: middle; color:#6C757D">{{info[4]}}</td>
+                                          <td style="color:#6C757D">
+                                                <div class="form-check">
+                                                      <input class="form-check-input" type="checkbox" name="r1" id="flexRadioDefault1">
+                                                      <label class="form-check-label" for="flexRadioDefault1">
+                                                        Превосходит ожидания
+                                                      </label>
+                                                </div>
+                                                <div class="form-check">
+                                                      <input class="form-check-input" type="checkbox" name="r2" id="flexRadioDefault2" value="1111">
+                                                      <label class="form-check-label" for="flexRadioDefault2">
+                                                        Соотвествует ожиданиям
+                                                      </label>
+                                                </div>
+                                                <div class="form-check">
+                                                      <input class="form-check-input" type="checkbox" name="r3" id="flexRadioDefault3">
+                                                      <label class="form-check-label" for="flexRadioDefault3">
+                                                        Не соотвествует ожиданиям
+                                                      </label>
+                                                </div>
+                                          </td>
+                                        </tr>
+                                  </tbody>
+                            </table>
+                      </div>
+                      <div class="margin_card_item1">
+                            {{ form.homework(class="form-control", placeholder="Домашнее задание", value=info[5]) }}
+                      </div>
+                      <div class="margin_card_item1">
+                            {{ form.homework_mark(class="form-control", placeholder="Выполнение домашнего задания", value=info[6]) }}
+                      </div>
+                  </div>
+                     <p class="margin_card_item1">{{ form.submit(type="submit", class="btn btn-warning") }}
+                    <button  class="btn btn-warning" style="background-color: #EA4728;"
+                             name="delete" value="delete"> Удалить </button>
+                    </p>
+            </form>
+        </div>
+        </div>
+</div>
+
+{% endblock %}

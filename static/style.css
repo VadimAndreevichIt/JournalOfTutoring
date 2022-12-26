@@ -1,0 +1,115 @@
+::-webkit-scrollbar {
+  width: 0;
+}
+
+
+html{
+    min-height: 100vh;
+    min-width: 100vh;
+
+}
+
+body{
+    width: 100%;
+    height:100vh
+}
+
+.div1{
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+.bgcolor_fon{
+    background-color: #E7EAED ;
+}
+
+.bgcolor_fon1{
+    background-color: #F7BB07;
+}
+
+.bgcolor_footers{
+width: 100%;
+    background-color: #656F7E ;
+    color: #FFFFFF;
+}
+
+.mark1{
+    background-color: #E20101 ;
+}
+
+.mark2{
+    background-color: #A793AC ;
+}
+
+.mark3{
+    background-color: #F8BE06 ;
+}
+
+.mark4{
+    background-color: #01AE8F ;
+}
+
+.style_table{
+    background-color: #FFFFFF ;
+}
+
+.size_table1{
+    margin:1%;
+    max-width: 98%
+}
+
+.size_table2{
+    float: left;
+    margin-left: 5%;
+    max-width: 60%;
+}
+
+/* main_page */
+.text_nav{
+    font-size: 110%;
+}
+
+.navig{
+    margin-left:20%
+}
+/* journal_page */
+.sidenav{
+    height:100%;
+    min-width:15%;
+    float:left;
+    margin-top:1px;
+}
+
+.side_h{
+    font-size: 100%;
+}
+
+.margin_input{
+    margin-left: 15%;
+}
+
+.margin_card_new_student{
+    float:left;
+    margin:25px;
+    min-width:25%
+}
+
+.margin_card_item1{
+    margin:1%;
+}
+
+.size_form{
+    margin:2%;
+    max-width: 96%
+}
+/* delete_student */
+.delete_div{
+    margin: 2%;
+    text-align: center;
+}
+
+.style_button{
+    min-width:20%;
+    margin: 2%;
+}

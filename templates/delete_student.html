@@ -1,0 +1,29 @@
+{% extends "main_page.html" %}
+
+{% block content %}
+
+
+    <dev class="delete_div">
+        <h3 class="delete_div"> Удалить? </h3>
+
+      <form action="" method="post" novalidate>
+          <button  class="btn btn-warning style_button" name="yes"> Да</button>
+          <button  class="btn btn-warning style_button" name="no"> Нет</button>
+       </form>
+
+    </dev>
+
+    <div class="card delete_div" style="max-width: 30%; margin-left: 35%">
+      <div class="card-header">
+          <h4> {{user.name }}</h4>
+      </div>
+      <div class="card-body">
+        <p class="card-text">
+          <a href={{user.link}} >Ссылка на занятие:</a> <br>
+          Телефон: {{user.phone}} <br>
+          Дни занятий: {{user.data_lesson}} <br>
+          Класс: {{user.class_student}} <br>
+        </p>
+      </div>
+    </div>
+{% endblock %}

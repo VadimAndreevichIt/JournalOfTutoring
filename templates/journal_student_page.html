@@ -1,0 +1,52 @@
+{% extends "main_page.html" %}
+
+{% block content %}
+
+    <table class="table style_table size_table1">
+          <thead class="thead-light bgcolor_fon1 div1">
+                <tr>
+                      <th  style="width: 10%; vertical-align: middle">Дата занятия</th>
+                      <th style="width: 10%; vertical-align: middle">Тема</th>
+                      <th style="width: 50%; vertical-align: middle">Комментарий</th>
+                      <th style="width: 10%; vertical-align: middle">Результат на занятии</th>
+                      <th style="width: 10%; vertical-align: middle">Домашнее задание</th>
+                      <th  style="width: 10%; vertical-align: middle">Результат домашнего задания</th>
+                </tr>
+          </thead>
+          <tbody>
+          {% for item in stutent_info[::-1] %}
+                    <tr>
+                          <th class="div1" scope="row">{{item[1]}}</th>
+                          <td class="div1">{{item[2]}}</td>
+                          <td class="div1">{{item[3]}}</td>
+                          <td class="div1">{{item[4]}}</td>
+                          <td class="div1">{{item[5]}}</td>
+                          <td class="div1">
+                           {% if item[7] == "не выполнено" %}
+                              <div class="mark1 div1">
+                                    <strong>не выполнено</strong>
+                              </div>
+                           {% elif item[7] == '3' %}
+                              <div class="mark2 div1">
+                                    <strong>{{item[6]}}%</strong>
+                              </div>
+                           {% elif item[7] == "4" %}
+                              <div class="mark4 div1">
+                                    <strong>{{item[6]}}%</strong>
+                              </div>
+                          {% elif item[7] == "5" %}
+                               <div class="mark4 div1">
+                                    <strong>{{item[6]}}%</strong>
+                              </div>
+                           {% else %}
+
+                           {% endif %}
+                        </td>
+                    </tr>
+          {% endfor %}
+          </tbody>
+    </table>
+
+
+
+{% endblock %}

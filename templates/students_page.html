@@ -1,0 +1,55 @@
+{% extends "main_page.html" %}
+
+{% block content %}
+
+        <table class="table table-hover table-bordered style_table size_table1">
+              <thead class="thead-light fon bgcolor_fon1">
+                    <tr align="center">
+                          <th>День недели</th>
+                          <th>Ученики</th>
+                    </tr>
+              </thead>
+              <tbody>
+              {% for day in days %}
+                    <tr align="center">
+                          <th scope="row" style="vertical-align: middle">{{day}}</th>
+                          <td>
+                              <div class="card-deck">
+                                  {% for student in students %}
+                                      {% if day in student[4] %}
+                                           <div class="card" style="float:left; margin:10px; min-width: 30%; max-width:30%">
+                                                <div class="card-body">
+                                                    <form action="" method="post" novalidate>
+                                                            <button class="btn" name={{"lp"}} value="{{student[0] + '-' + student[1]}}">
+                                                                    <h4 class="card-title">{{student[1]}}</h4>
+                                                            </button>
+                                                            <button class="btn" style="position: absolute" name={{"setting"}} value="{{student[0]+'-'+student[1]}}">
+                                                                   <img src="/static/setting.png" style="width:35%" alt="Кнопка «button»">
+                                                            </button>
+                                                          <p class="card-text">
+                                                              <a href={{student[2]}} >Ссылка на занятие:</a>
+                                                              <br>
+                                                              Телефон: {{student[3]}} <br>
+                                                              День занятий: {{day}} <br>
+                                                              Время: {{student[5][day]}} <br>
+                                                              Класс: {{student[6]}} <br>
+
+                                                      </p>
+                                                        <button  class="btn btn-warning" name={{student[0]}}> Журнал</button>
+                                                        <a class="btn" style="background-color: #EA4728;"
+                                                           href="/delete_student/{{student[0]}}" name={{student[0]}}> Удалить</a>
+                                                    </form>
+                                                </div>
+                                          </div>
+                                      {% endif %}
+                                  {% endfor %}
+                                </div>
+                          </td>
+                    </tr>
+               {% endfor %}
+              </tbody>
+        </table>
+
+
+
+{% endblock %}

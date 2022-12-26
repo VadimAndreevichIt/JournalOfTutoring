@@ -1,0 +1,131 @@
+{% extends "main_page.html" %}
+
+{% block content %}
+
+       <form action="" method="post" novalidate style="margin: 1%">
+            {{ form.hidden_tag() }}
+           <h2 align="center" style=" margin: 3%"> <u> Карточка нового ученика </u> </h2>
+       <div class="card-deck" style="float: left; min-width:30%; ">
+           <div class="card" >
+                  <div class="card-header" style="background-color: #FFC107;">
+                        <b>{{ form.username.label }}</b>
+                  </div>
+                  <div class="card-body">
+                        <h4 class="card-title">{{ form.username(class="form-control") }}</h4>
+                        <p class="card-text">
+                            {% for error in form.username.errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ error }}
+                                </div>
+                            {% endfor %}
+                        </p>
+                  </div>
+            </div>
+
+           <div class="card" style="margin-top:5%">
+                  <div class="card-header" style="background-color: #FFC107;">
+                        <b>{{ form.phone.label }}</b>
+                  </div>
+                  <div class="card-body">
+                        <h4 class="card-title"> {{ form.phone(class="form-control") }}</h4>
+                        <p class="card-text">
+                            {% for error in form.phone.errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ error }}
+                                </div>
+                            {% endfor %}
+                        </p>
+                  </div>
+            </div>
+
+           <div class="card" style="margin-top:5%">
+                  <div class="card-header" style="background-color: #FFC107;">
+                      <b> {{ form.link.label }}</b>
+                  </div>
+                  <div class="card-body">
+                        <h4 class="card-title"> {{ form.link(class="form-control") }}</h4>
+                        <p class="card-text">
+                           {% for error in form.link.errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ error }}
+                                </div>
+                            {% endfor %}
+                        </p>
+                  </div>
+            </div>
+
+           <div class="card" style="margin-top:5%">
+                  <div class="card-header" style="background-color: #FFC107;">
+                      <b> {{ form.class_student.label }} и дисциплмна</b>
+                  </div>
+                  <div class="card-body">
+                        <h4 class="card-title"> {{ form.class_student(class="form-control") }}</h4>
+                        <p class="card-text">
+                           {% for error in form.class_student.errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ error }}
+                                </div>
+                            {% endfor %}
+                        </p>
+                  </div>
+            </div>
+            <p style="margin-top:5%">{{ form.submit(type="submit", class="btn btn-warning") }}</p>
+       </div>
+
+           <table class="table table-bordered style_table size_table2" >
+              <thead class="thead-dark" align="center" style="background-color: #FFC107;">
+                    <tr>
+                          <th>День недели</th>
+                          <th>Время занятия</th>
+                    </tr>
+              </thead>
+              <tbody >
+                    <tr>
+                          <th scope="row">Понедельник</th>
+                          <td>
+                              {{ form.data1(class="form-control") }}
+                          </td>
+                    </tr>
+                     <tr>
+                          <th scope="row">Вторник</th>
+                          <td>
+                              {{ form.data2(class="form-control") }}
+                          </td>
+                    </tr>
+                     <tr>
+                          <th scope="row">Среда</th>
+                          <td>
+                              {{ form.data3(class="form-control") }}
+                          </td>
+                    </tr>
+                     <tr>
+                          <th scope="row">Четверг</th>
+                          <td>
+                              {{ form.data4(class="form-control") }}
+                          </td>
+                    </tr>
+                     <tr>
+                          <th scope="row">Пятница</th>
+                          <td>
+                              {{ form.data5(class="form-control") }}
+                          </td>
+                    </tr>
+                    <tr>
+                          <th scope="row">Суббота</th>
+                          <td>
+                              {{ form.data6(class="form-control") }}
+                          </td>
+                    </tr>
+                    <tr>
+                          <th scope="row">Воскресенье</th>
+                          <td>
+                              {{ form.data7(class="form-control") }}
+                          </td>
+                    </tr>
+              </tbody>
+           </table>
+
+
+        </form>
+
+{% endblock %}

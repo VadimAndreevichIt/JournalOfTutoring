@@ -1,0 +1,122 @@
+{% extends "main_page.html" %}
+
+{% block content %}
+
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark sidenav" style="text-align: center;>
+            <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+                <span class="fs-4" >  <div class="side_h"> Ученики</div>   </span>
+            </a>
+
+            <hr >
+                <ul class="nav nav-pills flex-column mb-auto">
+                  {% for student in students %}
+                    <li class="nav-item">
+                        {% if student[0] == indentificator %}
+                                <a href="{{href + student[0]}}" class="nav-link active" a style="background-color: #F7BB07" ria-current="page" >
+                                   {{student[1]}}
+                                 </a>
+                        {% else %}
+                               <a href="{{href + student[0]}}" class="nav-link text-white" aria-current="page">
+                                   {{student[1]}}
+                                 </a>
+                        {% endif %}
+                              <br>
+                      </li>
+                    {% endfor %}
+                </ul>
+
+            <hr>
+          </div>
+
+    <div class="margin_input" style="height: auto">
+        <br>
+         {% if "0" == indentificator %}
+
+         {% else %}
+        <h3 align="center"> <u> {{student_active[1]}} </u> </h3>
+                <div class="card-deck">
+                    <div class="card size_form" >
+                        <form action="" method="post" novalidate>
+                            <div class="bgcolor_fon1">
+                                  <div class="card-header">
+                                    {{ form.data(class="form-control", placeholder="Дата", style="max-width:30%", value=today) }}
+                                  </div>
+                            </div>
+                              <div class="card-body">
+                                  <div class="margin_card_item1">
+                                        {{ form.topic(class="form-control", placeholder="Тема занятия") }}
+                                  </div>
+                                  <div class="margin_card_item1">
+                                        {{ form.comment(class="form-control", placeholder="Комментарий") }}
+                                  </div>
+                                  <div class="margin_card_item1">
+                                        <table class="table table-bordered">
+                                              <tbody>
+                                                    <tr>
+                                                      <td style="vertical-align: middle; color:#6C757D">Уровень</td>
+                                                      <td style="color:#6C757D">
+                                                            <div class="form-check">
+                                                                  <input class="form-check-input" type="checkbox" name="r1" id="flexRadioDefault1">
+                                                                  <label class="form-check-label" for="flexRadioDefault1">
+                                                                    Превосходит ожидания
+                                                                  </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                  <input class="form-check-input" type="checkbox" name="r2" id="flexRadioDefault2" value="1111">
+                                                                  <label class="form-check-label" for="flexRadioDefault2">
+                                                                    Соотвествует ожиданиям
+                                                                  </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                  <input class="form-check-input" type="checkbox" name="r3" id="flexRadioDefault3">
+                                                                  <label class="form-check-label" for="flexRadioDefault3">
+                                                                    Не соотвествует ожиданиям
+                                                                  </label>
+                                                            </div>
+                                                      </td>
+                                                    </tr>
+                                              </tbody>
+                                        </table>
+                                  </div>
+                                  <div class="margin_card_item1">
+                                        {{ form.homework(class="form-control", placeholder="Домашнее задание") }}
+                                  </div>
+                                  <div class="margin_card_item1">
+                                        {{ form.homework_mark(class="form-control", placeholder="Выполнение домашнего задания") }}
+                                  </div>
+                              </div>
+                                 <p class="margin_card_item1">{{ form.submit(type="submit", class="btn btn-warning") }}</p>
+                        </form>
+                    </div>
+                    {% for item in stutent_info[::-1] %}
+                        <div class="card margin_card_new_student" >
+
+                            <div class="bgcolor_fon1">
+                                  <div class="card-header" >
+                                    {{item[1]}}
+                                  </div>
+                            </div>
+
+                              <div class="card-body">
+                                    <h4 class="card-title">{{item[2]}}</h4>
+                                    <p class="card-text">Комментарий: {{item[3]}}</p>
+                                  <p class="card-text">Оценка: {{item[4]}}</p>
+                                  <p class="card-text">Домашнее задание: {{item[5]}}</p>
+                                  <p class="card-text">Выполнение домашнего задания: {{item[6]}}</p>
+
+                                  <form action="" method="post" novalidate>
+                                    <button  class="btn btn-warning" name="change" value="{{item[0]}}"> Изменить </button>
+                                  </form>
+                              </div>
+
+                        </div>
+
+
+                    {% endfor %}
+                </div>
+         {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
