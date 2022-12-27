@@ -292,5 +292,5 @@ def add_student():
 
 if __name__ == '__main__':
     db_session.global_init("db/students.db")
-    #app.run(port=8080, host='127.0.0.1', debug=True)
+    #app.run(port=5000, host='127.0.0.1', debug=True)
     serve(app, host='0.0.0.0', port=5000)

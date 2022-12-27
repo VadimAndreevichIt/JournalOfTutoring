@@ -20,27 +20,35 @@
                           <td class="div1">{{item[2]}}</td>
                           <td class="div1">{{item[3]}}</td>
                           <td class="div1">{{item[4]}}</td>
-                          <td class="div1">{{item[5]}}</td>
                           <td class="div1">
-                           {% if item[7] == "не выполнено" %}
-                              <div class="mark1 div1">
-                                    <strong>не выполнено</strong>
-                              </div>
-                           {% elif item[7] == '3' %}
-                              <div class="mark2 div1">
-                                    <strong>{{item[6]}}%</strong>
-                              </div>
-                           {% elif item[7] == "4" %}
-                              <div class="mark4 div1">
-                                    <strong>{{item[6]}}%</strong>
-                              </div>
-                          {% elif item[7] == "5" %}
-                               <div class="mark4 div1">
-                                    <strong>{{item[6]}}%</strong>
-                              </div>
-                           {% else %}
+                              {% if item[5] == "" %}
+                                    не задано
+                              {% else %}
+                                    {{item[5]}}
+                              {% endif %}
+                          </td>
+                          <td class="div1">
+                              {% if item[5] != "" %}
+                                    {% if item[7] == "не выполнено" %}
+                                          <div class="mark1 div1">
+                                                <strong>не выполнено</strong>
+                                          </div>
+                                       {% elif item[7] == '3' %}
+                                          <div class="mark2 div1">
+                                                <strong>{{item[6]}}%</strong>
+                                          </div>
+                                       {% elif item[7] == "4" %}
+                                          <div class="mark4 div1">
+                                                <strong>{{item[6]}}%</strong>
+                                          </div>
+                                      {% elif item[7] == "5" %}
+                                           <div class="mark4 div1">
+                                                <strong>{{item[6]}}%</strong>
+                                          </div>
+                                       {% else %}
 
-                           {% endif %}
+                                    {% endif %}
+                              {% endif %}
                         </td>
                     </tr>
           {% endfor %}
